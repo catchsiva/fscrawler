@@ -41,10 +41,10 @@
         <elasticsearch6.version>6.8.5</elasticsearch6.version>
 
         <tika.version>1.22</tika.version>
-        <jackson.version>2.10.2</jackson.version>
+        <jackson.version>2.10.5.1</jackson.version>
         <log4j.version>2.13.0</log4j.version>
         <jansi.version>1.18</jansi.version>
-        <jersey.version>2.29.1</jersey.version>
+        <jersey.version>3.0.0</jersey.version>
 
         <!--
             Because elasticsearch is not using transitive dependencies, we need to be explicit here
@@ -68,8 +68,8 @@
         <integ.elasticsearch.image>docker.elastic.co/elasticsearch/elasticsearch</integ.elasticsearch.image>
         <integ.elasticsearch.version>${elasticsearch.version}</integ.elasticsearch.version>
         <integ.elasticsearch.port>9200</integ.elasticsearch.port>
-        <tests.cluster.url></tests.cluster.url>
-        <tests.cluster.cloud_id></tests.cluster.cloud_id>
+        <tests.cluster.url/>
+        <tests.cluster.cloud_id/>
         <tests.cluster.user>elastic</tests.cluster.user>
         <tests.cluster.pass>changeme</tests.cluster.pass>
         <tests.rest.port>8080</tests.rest.port>
@@ -81,14 +81,14 @@
         <tests.verbose>false</tests.verbose>
         <tests.leaveTemporary>false</tests.leaveTemporary>
         <tests.parallelism>auto</tests.parallelism>
-        <tests.seed></tests.seed>
+        <tests.seed/>
         <!-- Running the tests with Tesseract OCR might take time -->
         <tests.timeoutSuite>600000</tests.timeoutSuite>
         <tests.timeout>600000</tests.timeout>
 
         <!-- For CVE Audit with Sonatype -->
-        <env.SONATYPE_USER></env.SONATYPE_USER>
-        <env.SONATYPE_PASS></env.SONATYPE_PASS>
+        <env.SONATYPE_USER/>
+        <env.SONATYPE_PASS/>
         <sonatype.username>${env.SONATYPE_USER}</sonatype.username>
         <sonatype.password>${env.SONATYPE_PASS}</sonatype.password>
 
@@ -182,9 +182,7 @@
                         <ifNoTests>warn</ifNoTests>
                         <parallelism>${tests.parallelism}</parallelism>
                         <listeners>
-                            <report-text showThrowable="true" showStackTraces="true" showOutput="${tests.output}"
-                                         showStatusOk="${tests.verbose}" showStatusError="true" showStatusFailure="true"
-                                         showStatusIgnored="true" showSuiteSummary="${tests.verbose}" />
+                            <report-text showThrowable="true" showStackTraces="true" showOutput="${tests.output}" showStatusOk="${tests.verbose}" showStatusError="true" showStatusFailure="true" showStatusIgnored="true" showSuiteSummary="${tests.verbose}"/>
                         </listeners>
                         <seed>${tests.seed}</seed>
                         <systemProperties combine.children="append">
